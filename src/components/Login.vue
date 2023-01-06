@@ -13,7 +13,8 @@
                 </el-form-item>
                 <!--密码-->
                 <el-form-item prop="password">
-                    <el-input v-model="loginForm.password" prefix-icon="iconfont icon-3702mima" type="password"></el-input>
+                    <el-input v-model="loginForm.password" prefix-icon="iconfont icon-3702mima"
+                        type="password"></el-input>
                 </el-form-item>
                 <!--按钮区域-->
                 <el-form-item class="btns">
@@ -27,7 +28,7 @@
 
 <script>
 export default {
-    data(){
+    data() {
         return {
             // 登录表单对象
             loginForm: {
@@ -37,30 +38,30 @@ export default {
             // 表单验证规则对象
             loginFormRules: {
                 username: [
-                { required: true, message: '请输入登录名称', trigger: 'blur' },
-                { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+                    { required: true, message: '请输入登录名称', trigger: 'blur' },
+                    { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
                 ],
                 password: [
-                { required: true, message: '请输入密码', trigger: 'blur' },
-                { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
+                    { required: true, message: '请输入密码', trigger: 'blur' },
+                    { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
                 ]
             }
         }
     },
     methods: {
         // 点击重置按钮 重置登录表单
-        resetLoginForm(){
+        resetLoginForm() {
             this.$refs.loginFormRef.resetFields();
         },
-        login(){
+        login() {
             this.$refs.loginFormRef.validate(async valid => {
-                if(!valid) return;
-                const {data: res} = await this.$http.post('login', this.loginForm);
-                
-                if(res.meta.status != 200) return this.$message.error('登录失败！');
-                this.$message.success('登录成功！');
+                if (!valid) return;
+                const { data: res } = await this.$http.post('login', this.loginForm)
 
-                window.sessionStorage.setItem('token', res.data.token);
+                if (res.meta.status != 200) return this.$message.error('登录失败！')
+                this.$message.success('登录成功！')
+
+                window.sessionStorage.setItem('token', res.data.token)
 
                 this.$router.push('/home');
             });
@@ -70,12 +71,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.login_container{
+.login_container {
     background-color: #2b4b6b;
     height: 100%;
 }
 
-.login_box{
+.login_box {
     width: 450px;
     height: 300px;
     background-color: #fff;
@@ -86,7 +87,7 @@ export default {
     transform: translate(-50%, -50%);
 }
 
-.avatar_box{
+.avatar_box {
     height: 130px;
     width: 130px;
     border: 1px solid #eee;
@@ -97,7 +98,8 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    img{
+
+    img {
         width: 100%;
         height: 100%;
         border-radius: 50%;
@@ -105,12 +107,12 @@ export default {
     }
 }
 
-.btns{
+.btns {
     display: flex;
     justify-content: flex-end;
 }
 
-.login_form{
+.login_form {
     position: absolute;
     bottom: 0;
     width: 100%;

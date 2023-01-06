@@ -1,3 +1,10 @@
+/*
+ * @Author: Changwei Cao
+ * @Date: 2023-01-04 09:15:10
+ * @LastEditors: Changwei Cao
+ * @LastEditTime: 2023-01-06 12:09:19
+ * @Description:
+ */
 module.exports = {
   root: true,
   env: {
@@ -12,6 +19,7 @@ module.exports = {
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'space-before-function-paren': 0
   }
 }
